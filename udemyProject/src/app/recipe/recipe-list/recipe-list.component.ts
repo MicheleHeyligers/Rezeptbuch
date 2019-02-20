@@ -9,6 +9,7 @@ import { Recipe } from '../recipe.model';
 export class RecipeListComponent implements OnInit {
   // tslint:disable-next-line:max-line-length
   recipe = new Recipe('Dummy', 'Dummy', 'https://www.morphsuitsdeutschland.com/crash-test-dummy-morphsuit');
+
   constructor() { }
 
   ngOnInit() {
