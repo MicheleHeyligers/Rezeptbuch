@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Recipe } from '../recipe.model';
 
 @Component({
@@ -7,12 +7,17 @@ import { Recipe } from '../recipe.model';
   styles: []
 })
 export class RecipeListComponent implements OnInit {
-  // tslint:disable-next-line:max-line-length
-  recipe = new Recipe('Dummy', 'Dummy', 'https://www.morphsuitsdeutschland.com/crash-test-dummy-morphsuit');
+  @Output() recipeSelected = new EventEmitter<Recipe>();
+
+  recipe = new Recipe('Dummy', 'Dummy', 'http://localhost:4200/favicon.ico');
+  selectedRecipe: Recipe;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  onSelected(recipe: Recipe) {
+    this.recipeSelected.emit(recipe);
+  }
 }
